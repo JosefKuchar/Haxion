@@ -38,7 +38,7 @@ gulp.task("postcss", function() {
     .pipe(gulp.dest("public/css"))
 });
 
-gulp.task("start", function () {
+gulp.task("nodemon", function () {
   nodemon({
     script: "index.js",
     ext: "pcss js html",
@@ -46,3 +46,5 @@ gulp.task("start", function () {
     tasks: ["postcss"]
   });
 });
+
+gulp.task("default", ["postcss", "nodemon"]);
