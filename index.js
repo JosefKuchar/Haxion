@@ -12,3 +12,7 @@ app.use(express.static(__dirname + "/public"));
 
 // Set port to 5000
 http.listen(5000);
+
+io.sockets.on("connection", function(socket) {
+    console.log("new connection!")
+});
