@@ -26,7 +26,8 @@
   },
   "homepage": "https://github.com/JosefKuchar/Haxion#readme",
   "devDependencies": {
-    "db-migrate": "^0.9.26",
+    "db-migrate": "^0.10.0-beta.12",
+    "db-migrate-mongodb": "^1.1.4",
     "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-ext-replace": "^0.3.0",
