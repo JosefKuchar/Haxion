@@ -1,0 +1,35 @@
+.terminal {
+    overflow-y: scroll;
+    height: 50vh;
+    font-family: "FiraCode";
+    font-size: 1em;
+    background-color: $dark;
+    color: $white;
+    width: 50vw;
+    box-sizing: border-box;
+    padding: calc($unit / 2);
+
+    & ul {
+        & li {
+            list-style-type: none;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+    }
+
+    & input {
+        width: 80%;
+        box-sizing: border-box;
+        font-size: 1em;
+        font-family: "FiraCode";
+        outline: none;
+        background-color: $dark;
+        border: none;
+        color: $white;
+    }
+
+    & li::selection, & input::selection {
+        color: $dark;
+        background-color: $white;
+    }
+}

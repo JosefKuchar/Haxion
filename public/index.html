@@ -13,8 +13,20 @@
 <body>
     <!-- Vue app -->
     <div id="app">
-        <input type="text">
+        <terminal></terminal>
     </div>
+
+    <!-- Vue templates -->
+    <template id="terminal-template">
+        <div class="terminal" v-on:click="focus">
+            <ul>
+                <li v-for="line in lines">{{ line }}</li>
+            </ul>
+            <span>{{ ps1 }}</span>
+            <input type="text" v-on:keyup.enter="send" v-model="input" class="terminal-field">
+        </div>
+    </template>
+    
 
     <!-- Game files -->
     <script src="js/index.js"></script>
