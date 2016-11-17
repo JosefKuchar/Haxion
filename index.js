@@ -33,7 +33,9 @@ io.sockets.on("connection", function(socket) {
 function runCommand(args) {
     if(commands[args._[0]]) {
         //TODO: Do command
-        return "";
+        return null;
+    } else if (args._[0] === undefined) {
+        return null;
     } else {
         return "bash: " + args._[0] + ": command not found";
     }
