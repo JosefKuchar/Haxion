@@ -3,6 +3,7 @@ var express = require("express");
 var app = express();
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
+var mongojs = require("mongojs");
 var parseArgs = require('minimist');
 
 //My files
