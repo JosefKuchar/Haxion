@@ -4,16 +4,20 @@ var app = express();
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
 var mongojs = require("mongojs");
-var parseArgs = require('minimist');
+var parseArgs = require("minimist");
+var bcrypt = require("bcryptjs");
 
-//My files
-var commands = require("./js/commands.js");
+// My files
+var commands = require("./app/js/commands.js");
 
-console.log(commands);
+app.set("view engine", "ejs")
 
+// Routes 
 app.get("/", function(req, res){
-    res.sendFile(__dirname + "/public/index.html");
+    res.render(__dirname + "/views/index.ejs");
 });
+
+
 
 // Serve from public
 app.use(express.static(__dirname + "/public"));
@@ -49,3 +53,4 @@ function parseArguments(line) {
     // Parse arguments by minimist package
     return parseArgs(argumentsArray);
 }
+
