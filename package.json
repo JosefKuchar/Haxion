@@ -26,15 +26,10 @@
   },
   "homepage": "https://github.com/JosefKuchar/Haxion#readme",
   "devDependencies": {
-    "db-migrate": "^0.10.0-beta.12",
-    "db-migrate-mongodb": "^1.1.4",
-    "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-ext-replace": "^0.3.0",
     "gulp-nodemon": "^2.2.1",
     "gulp-postcss": "^6.2.0",
-    "minimist": "^1.2.0",
-    "mongojs": "^2.4.0",
     "postcss-brand-colors": "^0.4.0",
     "postcss-calc": "^5.3.1",
     "postcss-center": "^1.0.0",
@@ -45,7 +40,14 @@
     "postcss-property-lookup": "^1.2.1",
     "postcss-responsive-images": "^1.0.3",
     "postcss-simple-vars": "^3.0.0",
-    "postcss-zindex": "^2.1.1",
+    "postcss-zindex": "^2.1.1"
+  },
+  "dependencies": {
+    "db-migrate": "^0.10.0-beta.12",
+    "db-migrate-mongodb": "^1.1.4",
+    "express": "^4.14.0",
+    "minimist": "^1.2.0",
+    "mongojs": "^2.4.0",
     "socket.io": "^1.5.1"
   }
 }
