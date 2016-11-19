@@ -14,6 +14,7 @@
     <!-- Vue app -->
     <div id="app">
         <terminal></terminal>
+        <irc></irc>
     </div>
 
     <!-- Vue templates -->
@@ -24,6 +25,15 @@
             </ul>
             <span>{{ ps1 }}</span>
             <input type="text" v-on:keyup.enter="send" v-model="input" class="terminal-field">
+        </div>
+    </template>
+
+    <template id="irc-template">
+        <div class="irc">
+            <ul>
+                <li v-for="line in lines">{{ line }}</li>
+            </ul>
+            <input type="text" v-model="input" v-on:keyup.enter="send">
         </div>
     </template>
     

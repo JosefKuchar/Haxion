@@ -38,7 +38,31 @@ Vue.component("terminal", {
             this.lines.push(data);
         }.bind(this));
     }
-})
+});
+
+Vue.component("irc", {
+    template: "#irc-template",
+    data: function() {
+        return {
+            input: "",
+            lines: []
+        };
+    },
+    methods: {
+        send: function() {
+            // Send command
+            socket.emit("irc", this.input);
+
+            // Reset input
+            this.input = "";
+        }
+    },
+    created: function() {
+        socket.on("irc", function(data) {
+            this.lines.push(data);
+        }.bind(this));
+    }
+});
 
 //VueJs
 var app = new Vue({

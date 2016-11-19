@@ -10,20 +10,19 @@ var bcrypt = require("bcryptjs");
 // My files
 var commands = require("./app/js/commands.js");
 
+// Set rendering engine to EJS
 app.set("view engine", "ejs")
-
-// Routes 
-app.get("/", function(req, res){
-    res.render(__dirname + "/views/index.ejs");
-});
-
-
 
 // Serve from public
 app.use(express.static(__dirname + "/public"));
 
 // Set port to 5000
 http.listen(5000);
+
+// Routes 
+require("./app/js/routes.js")(app);
+
+var SOCKET_LIST = [];
 
 io.sockets.on("connection", function(socket) {
     console.log("new connection!");
@@ -33,6 +32,8 @@ io.sockets.on("connection", function(socket) {
 
         socket.emit("terminal", output);
     }); 
+
+    require("./app/js/irc.js")(io, socket);
 });
 
 function runCommand(args) {
