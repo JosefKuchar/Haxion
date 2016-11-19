@@ -1,0 +1,44 @@
+.irc {
+    height: 50vh;
+    font-family: "FiraCode";
+    font-size: 1em;
+    background-color: $black;
+    color: $white;
+    width: 50vw;
+    box-sizing: border-box;
+    position: relative;
+
+    & ul {
+        height: 50vh;
+        overflow-y: scroll;
+        & li {
+            list-style-type: none;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+    }
+
+    & .irc-input-cover {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        & input {
+            background-color: $black;
+            color: $white;
+            outline: none;
+            border: none;
+            font-size: 1em;
+            font-family: "FiraCode";
+            width: calc(100% - 17px);
+            box-sizing: border-box;
+            padding: $unit;
+        } 
+    }
+
+    & li::selection, & input::selection {
+        color: $black;
+        background-color: $white;
+    }
+}

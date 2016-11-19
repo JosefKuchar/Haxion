@@ -59,7 +59,10 @@ Vue.component("irc", {
     },
     created: function() {
         socket.on("irc", function(data) {
-            this.lines.push(data);
+            var now = new Date();
+            var time = now.getHours() + ":" + now.getMinutes();
+
+            this.lines.push(time + " -!- " + data);
         }.bind(this));
     }
 });

@@ -33,7 +33,9 @@
             <ul>
                 <li v-for="line in lines">{{ line }}</li>
             </ul>
-            <input type="text" v-model="input" v-on:keyup.enter="send">
+            <div class="irc-input-cover">
+                <input type="text" v-model="input" v-on:keyup.enter="send">
+            </div>
         </div>
     </template>
     
