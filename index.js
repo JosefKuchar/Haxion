@@ -1,32 +1,32 @@
-// Third party modules
+// Third-party modules
 const express = require("express");
 const app = express();
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
 const mongojs = require("mongojs");
 const parseArgs = require("minimist");
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const flash = require('connect-flash');
-
-// Passport
 const passport = require("passport");
 const session = require("express-session");
-
-const RedisStore = require('connect-redis')(session)
+const RedisStore = require("connect-redis")(session);
 const redisUrl = require("redis-url");
 
+// DB Config
 const configDB = require("./config/database.js");
-require('./config/passport.js')(passport);
 
-// Conect to DB
+// Connect to DB
 mongoose.connect(configDB.url);
 
-// Redis
+// Passport initialization
+require("./config/passport.js")(passport);
+
+// Session store initialization
 const sessionStore = new RedisStore({ client: redisUrl.connect(process.env.REDIS_URL)});
 
-// HTTP Body parser
+// HTTP Body parser initialization
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Express session middleware
@@ -37,23 +37,22 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         secure: process.env.ENVIRONMENT !== 'development' && process.env.ENVIRONMENT !== 'test',
-        //maxAge: 2419200000
         expires: false
     },
 }));
 
-var User = require("./app/models/user.js");
-
-
-
-// Initialize Passport session
+// Initialize sessions
 app.use(session({ 
     secret: 'ilovescotchscotchyscotchscotch', 
     resave: true,
     saveUninitialized: true
 }));
+
+// Initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Initialize flash messages
 app.use(flash());
 
 
