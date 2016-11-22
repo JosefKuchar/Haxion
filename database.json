@@ -1,7 +1,0 @@
-{
-    "dev": {
-        "driver": "mongodb",
-        "database": "haxion",
-        "host": "localhost"
-    }
-}
