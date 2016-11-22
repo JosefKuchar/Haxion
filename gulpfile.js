@@ -32,7 +32,7 @@ gulp.task("postcss", function() {
     postcssBrandColors()
   ];
 
-  return gulp.src("app/css/index.pcss")
+  return gulp.src("assets/css/index.pcss")
     .pipe(postcss(modules))
     .pipe(extReplace(".css"))
     .pipe(gulp.dest("public/css"))
